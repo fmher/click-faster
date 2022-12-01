@@ -6,7 +6,7 @@ Oh no! You took another L from your favorite FPS shooter game because your aim w
 
 The whole point of the game is to much sure your click your targets within in a set time. The targets appear in a set area. They do not stay in one spot forever. They appear randomly in an area. Every click on a target gets you a point. To get more points you need to click the target within a set time. To win the game, get enough points to beat the current score within a set time. 
 
-
+![click-faster](https://user-images.githubusercontent.com/115588595/205171928-5a9a518b-6a7d-4f94-8677-709708bd46b3.png)
 
 # Tech Used
 
