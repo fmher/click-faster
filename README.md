@@ -6,7 +6,29 @@ Oh no! You took another L from your favorite FPS shooter game because your aim w
 
 The whole point of the game is to much sure your click your targets within in a set time. The targets appear in a set area. They do not stay in one spot forever. They appear randomly in an area. Every click on a target gets you a point. To get more points you need to click the target within a set time. To win the game, get enough points to beat the current score within a set time. 
 
+
+
 # Tech Used
 
 * HTML
 * CSS
+* JS
+
+# MVP
+
+* create a grid where targets appear in
+* show current score and score to beat
+* change mouse cursor into a target cursor
+* show timer on the screen
+* have buttons to start timer and game
+* have a reset button to rest game, to play again, and reset timer
+
+# Strech Goals
+
+* create levels that get harder
+* create different targets that reward you with different points
+* have multiple targets spawn
+* allow targets to take move
+* targets have health bar or can take multiple hits
+
+
