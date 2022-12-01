@@ -1,3 +1,4 @@
+
 #grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -8,19 +9,26 @@
     cursor: crosshair;
 }
 
+#scores {
+    margin: auto;
+    /* background-color: blueviolet; */
+    
+    text-align: center;
+}
+
+
 #score-holder, #score-to-beat {
     background-color: black;
     color: yellow;
     font-size: 50px;
     height: 200px;
     width: 200px;
-    text-align: center;
     display: inline-flex;
 }
 
 #score-holder {
     
-    margin: 100px;
+    margin: 70px;
 }
 
 .boxstyle {
