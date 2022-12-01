@@ -1,9 +1,32 @@
 #grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    background-color: aquamarine;
+    
+    
+}
+
+#score-holder, #score-to-beat {
+    background-color: black;
+    color: yellow;
+    font-size: 50px;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    display: inline-flex;
+}
+
+#score-holder {
+    
+    margin: 100px;
 }
 
 .boxstyle {
-    background-color: aquamarine;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    text-align: center;
 
 }
+
+
