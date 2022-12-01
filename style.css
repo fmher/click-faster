@@ -3,7 +3,9 @@
     grid-template-columns: repeat(3, 1fr);
     background-color: aquamarine;
     
-    
+    /* this changes mouse to crosshair */
+    /* .crosshair {cursor: crosshair;} */
+    cursor: crosshair;
 }
 
 #score-holder, #score-to-beat {
@@ -32,6 +34,4 @@
     margin-bottom: 20px;
 
 }
-/* this changes mouse to crosshair */
-/* .crosshair {cursor: crosshair;} */
 
