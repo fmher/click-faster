@@ -26,7 +26,12 @@
     height: 100px;
     width: 100px;
     text-align: center;
+    /* adjusts targets into a specifi postion with grid */
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
 
 }
-
+/* this changes mouse to crosshair */
+/* .crosshair {cursor: crosshair;} */
 
