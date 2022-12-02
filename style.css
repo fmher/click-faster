@@ -1,4 +1,7 @@
-
+/* button {
+    border: red;
+    background-color: red;
+} */
 
 #grid {
     display: grid;
@@ -13,7 +16,7 @@
 #scores {
     text-align: center;
     display: inline-flex;
-    margin-left: 500px;
+    /* margin-left: 500px; */
     
 }
 
