@@ -1,6 +1,7 @@
 const startBtn = document.querySelector('#start')
 const resetBtn = document.querySelector('#reset')
 const grid = document.querySelector('#grid')
+const grid2 = document.querySelector('#grid')
 const score = document.querySelector('#score-holder')
 const scoreToBeat = document.querySelector('#score-to-beat')
 const clickBox1 = document.querySelector('#box1')
@@ -22,6 +23,13 @@ startBtn.addEventListener('click', () => {
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
     console.log(randomNum)
     scoreToBeat.innerText = randomNum
+
+    render()
+    
+})
+
+// allows game to function
+const render = () => {
 
     clickBox1.addEventListener('click', () => {
        score.innerText = scoreUp(+score.innerText)
@@ -46,7 +54,7 @@ startBtn.addEventListener('click', () => {
     clickbox2.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-
+    
         if (score.innerText > scoreToBeat.innerText) {
             grid.innerText = 'you won!'
         } 
@@ -55,7 +63,7 @@ startBtn.addEventListener('click', () => {
     clickbox3.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-
+    
         if (score.innerText > scoreToBeat.innerText) {
             grid.innerText = 'you won!'
         } 
@@ -64,7 +72,7 @@ startBtn.addEventListener('click', () => {
     clickbox4.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-
+    
         if (score.innerText > scoreToBeat.innerText) {
             grid.innerText = 'you won!'
         } 
@@ -73,7 +81,7 @@ startBtn.addEventListener('click', () => {
     clickbox5.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-
+    
         if (score.innerText > scoreToBeat.innerText) {
             grid.innerText = 'you won!'
         } 
@@ -82,15 +90,13 @@ startBtn.addEventListener('click', () => {
     clickbox6.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-
+    
         if (score.innerText > scoreToBeat.innerText) {
             grid.innerText = 'you won!'
         } 
-
+    
     })
-    
-    
-})
+}
 
 
 //adds the score up, increments
@@ -101,9 +107,16 @@ const scoreUp = (num) => {
 
 //reset button!!!!!!!!!!
 resetBtn.addEventListener('click', () => {
-    console.log('pressed!')
+    console.log('reset button pressed!')
 
-    
+    // as of right now, just want score and score-to-beat to be resetted
+    // also grid!
+    score.innerText = 'score'
+    scoreToBeat.innerText = 'score to beat!'
+    // grid.innerText = document.querySelector('#grid')
+    grid.innerText = grid2.innerText('.boxstyle')
+    render()
+    console.log(grid)
 })
 
 
