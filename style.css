@@ -10,10 +10,10 @@
 }
 
 #scores {
-    margin: auto;
-    /* background-color: blueviolet; */
-    
     text-align: center;
+    display: inline-flex;
+    margin-left: 500px;
+    
 }
 
 
@@ -23,12 +23,11 @@
     font-size: 50px;
     height: 200px;
     width: 200px;
-    display: inline-flex;
+    
 }
 
-#score-holder {
-    
-    margin: 70px;
+#score-to-beat {
+    margin-left: 70px;
 }
 
 .boxstyle {
