@@ -21,7 +21,7 @@ startBtn.addEventListener('click', () => {
     
     // creates random number that you will have to beat!
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
-    console.log(randomNum)
+    // console.log(randomNum)
     scoreToBeat.innerText = randomNum
 
     render()
@@ -101,25 +101,27 @@ const render = () => {
 
 //adds the score up, increments
 const scoreUp = (num) => {
-    num+=10
+    num= num + 10
     return num
 }
 
 //reset button!!!!!!!!!!
+//somehow reset button allow you to start at 0+10, everytime tapped +10
 resetBtn.addEventListener('click', () => {
     console.log('reset button pressed!')
 
-    // as of right now, just want score and score-to-beat to be resetted
-    // also grid!
-    score.innerText = 'score'
+    //resets score and score to beat back to normal
+    console.log('holding score', score.innerText)
+    score.innerText = null
     scoreToBeat.innerText = 'score to beat!'
-    // grid.innerText = document.querySelector('#grid')
-    grid.innerText = grid2.innerText('.boxstyle')
-    render()
+    
+    // trying to convert you win back to targets, but unable too
+    // grid.innerText = grid2.innerText('.boxstyle')
+    // render()
     console.log(grid)
 })
 
-
+console.log(1)
 
 // score.innerText = '10'
 // console.log(scoreUp(10))
