@@ -1,4 +1,5 @@
 const startBtn = document.querySelector('#start')
+const grid = document.querySelector('#grid')
 let score = document.querySelector('#score-holder')
 const scoreToBeat = document.querySelector('#score-to-beat')
 const clickBox1 = document.querySelector('#box1')
@@ -8,8 +9,7 @@ const clickbox4 = document.querySelector('#box4')
 const clickbox5 = document.querySelector('#box5')
 const clickbox6 = document.querySelector('#box6')
 
-// console.log(score)
-// console.log(btn)
+// console.log(winLose)
 
 
 // changes score and score to beat to a number
@@ -29,37 +29,68 @@ startBtn.addEventListener('click', () => {
         // console.log('been clicked!')
         
         
-        // doesnt work idk
-        // suppose increment score up by 10 each time btn is clicked
         scoreUp(+score.innerText)
+        
+        // win condition works, but if pressed to fast you break game, idk
+        // doesnt work idk, ----> NOW DOES WORK = IDK
+        // suppose increment score up by 10 each time btn is clicked
+        // start button counts score incrementing up
+        //EX score to beat 10, click start 2 times then target after = win
+        if (score.innerText > scoreToBeat.innerText) {
+            grid.innerText = 'you won!'
+        } 
     
     })
-
+    
     clickbox2.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-    })
 
+        if (score.innerText > scoreToBeat.innerText) {
+            grid.innerText = 'you won!'
+        } 
+    })
+    
     clickbox3.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-    })
 
+        if (score.innerText > scoreToBeat.innerText) {
+            grid.innerText = 'you won!'
+        } 
+    })
+    
     clickbox4.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-    })
 
+        if (score.innerText > scoreToBeat.innerText) {
+            grid.innerText = 'you won!'
+        } 
+    })
+    
     clickbox5.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
-    })
 
+        if (score.innerText > scoreToBeat.innerText) {
+            grid.innerText = 'you won!'
+        } 
+    })
+    
     clickbox6.addEventListener('click', () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
+
+        if (score.innerText > scoreToBeat.innerText) {
+            grid.innerText = 'you won!'
+        } 
+
     })
+    
+    
 })
+
 
 //adds the score up, increments
 const scoreUp = (num) => {

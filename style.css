@@ -11,6 +11,7 @@
     /* this changes mouse to crosshair */
     /* .crosshair {cursor: crosshair;} */
     cursor: crosshair;
+    font-size: 200px;
 }
 
 #scores {
