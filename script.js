@@ -23,7 +23,7 @@ targetBtn.addEventListener('click', () => {
     
     // doesnt work idk
     // suppose increment score up by 10 each time btn is clicked
-    score = scoreUp(0)
+    scoreUp(score.innerText)
 
 })
 
@@ -32,8 +32,14 @@ const scoreUp = (num) => {
     num+=10
     return num
 }
-// console.log(scoreUp(10))
-// console.log(scoreUp(score))
+
+score.innerText = '10'
+
+console.log(scoreUp(10))
+// by adding + infront, converts string into a number
+console.log(scoreUp(+score.innerText))
+// reason why it doesnt work is because your adding a number to a string
+console.log(scoreUp(score.innerText))
 
 
 
