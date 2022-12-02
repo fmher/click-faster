@@ -1,6 +1,6 @@
 const startBtn = document.querySelector('#start')
 const grid = document.querySelector('#grid')
-let score = document.querySelector('#score-holder')
+const score = document.querySelector('#score-holder')
 const scoreToBeat = document.querySelector('#score-to-beat')
 const clickBox1 = document.querySelector('#box1')
 const clickbox2 = document.querySelector('#box2')
@@ -97,6 +97,8 @@ const scoreUp = (num) => {
     num+=10
     return num
 }
+
+//reset button!!!!!!!!!!
 
 
 

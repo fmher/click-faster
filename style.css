@@ -12,6 +12,7 @@
     /* .crosshair {cursor: crosshair;} */
     cursor: crosshair;
     font-size: 200px;
+    text-align: center;
 }
 
 #scores {
