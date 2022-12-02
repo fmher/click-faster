@@ -16,7 +16,11 @@ const clickbox6 = document.querySelector('#box6')
 // eventually will add a timer when start button is pressed
 startBtn.addEventListener('click', () => {
     score.innerText = 0
-    scoreToBeat.innerText = 9999
+    
+    // creates random number that you will have to beat!
+    let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
+    console.log(randomNum)
+    scoreToBeat.innerText = randomNum
 
     clickBox1.addEventListener('click', () => {
        score.innerText = scoreUp(+score.innerText)
@@ -62,8 +66,6 @@ const scoreUp = (num) => {
     num+=10
     return num
 }
-
-
 
 
 
