@@ -1,4 +1,5 @@
 const startBtn = document.querySelector('#start')
+const resetBtn = document.querySelector('#reset')
 const grid = document.querySelector('#grid')
 const score = document.querySelector('#score-holder')
 const scoreToBeat = document.querySelector('#score-to-beat')
@@ -8,8 +9,8 @@ const clickbox3 = document.querySelector('#box3')
 const clickbox4 = document.querySelector('#box4')
 const clickbox5 = document.querySelector('#box5')
 const clickbox6 = document.querySelector('#box6')
-
-// console.log(winLose)
+// checks to see if I targeted the right element correctly
+// console.log( resetBtn)
 
 
 // changes score and score to beat to a number
@@ -99,7 +100,11 @@ const scoreUp = (num) => {
 }
 
 //reset button!!!!!!!!!!
+resetBtn.addEventListener('click', () => {
+    console.log('pressed!')
 
+    
+})
 
 
 
