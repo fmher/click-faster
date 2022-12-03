@@ -21,7 +21,7 @@ const pTag = document.querySelector('#p')
 
 // changes score and score to beat to a number
 // eventually will add a timer when start button is pressed
-startBtn.addEventListener('click', () => {
+const startBtnListener = startBtn.addEventListener('click', () => {
     score.innerText = 0
     
     // creates random number that you will have to beat!
@@ -133,10 +133,13 @@ resetBtn.addEventListener('click', () => {
 
     //resets score and score to beat back to normal
     // console.log('holding score', score.innerText)
-    score.innerText = null
+    score.innerText = 'score'
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
+
+    // creates error
     // startBtn = null
+
     
 })
 
