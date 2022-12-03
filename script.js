@@ -15,6 +15,10 @@ const pTag = document.querySelector('#p')
 // console.log( popUp)
 
 
+
+//SOMEHOW THE START BUTTON IS KEEPING HOLD ON INCREMENT AND IS WHY IM
+//ABLE TO START AT A HIGHER NUM THAN 0 WHEN I RESET
+
 // changes score and score to beat to a number
 // eventually will add a timer when start button is pressed
 startBtn.addEventListener('click', () => {
@@ -22,10 +26,12 @@ startBtn.addEventListener('click', () => {
     
     // creates random number that you will have to beat!
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
-    console.log(randomNum)
     scoreToBeat.innerText = randomNum
     console.log(scoreToBeat)
-    console.log()
+    console.log(score)
+    console.log(startBtn)
+
+
     render()
     
 })
@@ -116,7 +122,7 @@ const render = () => {
 
 //adds the score up, increments
 const scoreUp = (num) => {
-    num= num + 10
+    num += 10
     return num
 }
 
@@ -127,10 +133,10 @@ resetBtn.addEventListener('click', () => {
 
     //resets score and score to beat back to normal
     // console.log('holding score', score.innerText)
-    score.innerText = 'score'
+    score.innerText = null
     scoreToBeat.innerText = 'score to beat!'
-    
     pTag.innerText = null
+    // startBtn = null
     
 })
 
