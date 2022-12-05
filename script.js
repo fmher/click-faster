@@ -13,11 +13,12 @@ const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 // checks to see if I targeted the right element correctly
-// console.log(clickBox1.getAttribute('data-value'))
+console.log(target)
 
 
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
-                    clickBox5, clickBox6]
+                    clickBox5, clickBox6];
+
 
 //SOMEHOW THE START BUTTON IS KEEPING HOLD ON INCREMENT AND IS WHY IM
 //ABLE TO START AT A HIGHER NUM THAN 0 WHEN I RESET
@@ -30,25 +31,37 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // creates random number that you will have to beat!
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
     scoreToBeat.innerText = randomNum
-    // console.log(scoreToBeat)
-    // console.log(score)
-    // console.log(startBtn)
     
-    setTimeout(() => {
-        console.log('this is a 1sec')
+    // creates target every 2 secs
+    let timer = setInterval(() => {
+        console.log('this is a 2sec')
+        
+        targetMaker()
+        for (let i = 0; i >= clickBoxArr.length; i++) {
+            console.log(i)
+            if (clickBoxArr[i] = target) {
+                clearInterval(timer)
+            }
+        }
+        
+    }, 2000)
 
-
-    }, 1000)
-    
+    // target.remove()
 
 })
+
 
 const targetMaker = () => {
     const randomIndex = Math.round(Math.random() * 5)
     const randomDiv = clickBoxArr[randomIndex]
     const newDiv = document.createElement('div')
     //creating new div to make targets at random divs
-    
+    newDiv.setAttribute('id', 'target')
+    randomDiv.appendChild(newDiv)
+    //WORKS, CLICKS BOX TO INCREASE SCORE
+    // randomDiv.addEventListener('click', clickBox)
+    //WORKS, CLICKS ONLY TARGET TO INCREASE SCORE
+    newDiv.addEventListener('click', clickBox)
 }
 
 //so idea does work, dont need loop
@@ -73,9 +86,13 @@ const clickBox = () => {
     }
 }
 
+const scoreUp = (num) => {
+    num += 10
+    return num
+}
 
 // clickBox1.addEventListener('click', clickBox)
-target.addEventListener('click', clickBox)
+// target.addEventListener('click', clickBox)
 // clickBox2.addEventListener('click', clickBox)
     
 // clickBox3.addEventListener('click', clickBox)
@@ -89,10 +106,6 @@ target.addEventListener('click', clickBox)
 
 
 //adds the score up, increments
-const scoreUp = (num) => {
-    num += 10
-    return num
-}
 
 
 resetBtn.addEventListener('click', () => {
