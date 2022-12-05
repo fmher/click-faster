@@ -42,6 +42,19 @@ p {
     margin-left: 70px;
 }
 
+#target {
+    font-size: 20px;
+    background-color: yellow;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    
+}
+
 .boxstyle {
     background-color: red;
     height: 100px;

@@ -11,8 +11,9 @@ const clickbox4 = document.querySelector('#box4')
 const clickbox5 = document.querySelector('#box5')
 const clickbox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
+const target = document.querySelector('#target')
 // checks to see if I targeted the right element correctly
-// console.log( popUp)
+// console.log(clickBox1.getAttribute('data-value'))
 
 
 
@@ -27,43 +28,50 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // creates random number that you will have to beat!
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
     scoreToBeat.innerText = randomNum
-    console.log(scoreToBeat)
-    console.log(score)
-    console.log(startBtn)
-
-    render()
+    // console.log(scoreToBeat)
+    // console.log(score)
+    // console.log(startBtn)
     
-    // setTimeout(() = > {
+    setTimeout(() => {
+        // for(let i = 600; i > 0; i--) {
+        //     console.log(i)
+        // }
+        console.log('this is a 2sec')
 
-    // })
+    }, 2000)
+    
+
 })
+
 //changes score and increments it
+// allows game to function
 const clickBox = () => {
+    //ADDING + IN FRONT ON STRING CONVERTS IT TO NUMBER, IF IS NUMBER
     score.innerText = scoreUp(+score.innerText)
     scoreUp(+score.innerText)
 
     if (+score.innerText > +scoreToBeat.innerText) {
         const popUp = document.createElement('p')
-        const youWin = document.createTextNode('you win!')
+        const youWin = document.createTextNode('You win!')
         popUp.appendChild(youWin)
         pTag.appendChild(popUp)
-
+        //gets removed, ptag was not on top, target could be seen and touched
+        target.remove()
     }
 }
 
 
-// allows game to function
 clickBox1.addEventListener('click', clickBox)
     
-clickbox2.addEventListener('click', clickBox)
+// clickbox2.addEventListener('click', clickBox)
     
-clickbox3.addEventListener('click', clickBox)
+// clickbox3.addEventListener('click', clickBox)
     
-clickbox4.addEventListener('click', clickBox)
+// clickbox4.addEventListener('click', clickBox)
     
-clickbox5.addEventListener('click', clickBox)
+// clickbox5.addEventListener('click', clickBox)
     
-clickbox6.addEventListener('click', clickBox)
+// clickbox6.addEventListener('click', clickBox)
 
 
 
@@ -73,8 +81,7 @@ const scoreUp = (num) => {
     return num
 }
 
-//reset button!!!!!!!!!!
-//somehow reset button allow you to start at 0+10, everytime tapped +10
+
 resetBtn.addEventListener('click', () => {
     console.log('reset button pressed!')
 
@@ -84,21 +91,10 @@ resetBtn.addEventListener('click', () => {
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
 
-    // creates error
-    // startBtn = null
-    score.innerText = '0'
-    // scoreUp(score.innerText)
     
 })
 
 
-
-// score.innerText = '10'
-// console.log(scoreUp(10))
-// // by adding + infront, converts string into a number
-// console.log(scoreUp(+score.innerText))
-// // reason why it doesnt work is because your adding a number to a string
-// console.log(scoreUp(score.innerText))
 
 
 
