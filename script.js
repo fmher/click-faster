@@ -12,8 +12,9 @@ const clickBox5 = document.querySelector('#box5')
 const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
+const countDown = document.querySelector('#countDown')
 // checks to see if I targeted the right element correctly
-console.log(target)
+// console.log(countDown)
 
 
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
@@ -32,16 +33,18 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
     scoreToBeat.innerText = randomNum
     
-    // creates target every 2 secs
+    // creates target every 1 secs
     let timer = setInterval(() => {
-        console.log('this is a 2sec')
-        
+        console.log('this is a 1sec')
         targetMaker()
-        
         
     }, 1000)
 
-    // target.remove()
+    let countingDown = setInterval(() => {
+        console.log('timer countdown??')
+        let num = +countDown.innerText
+        num--
+    }, 1000)
 
 })
 
@@ -116,8 +119,9 @@ resetBtn.addEventListener('click', () => {
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
 
-    clearInterval(timer, 0)
-    
+    //does not work
+    // clearInterval(timer, 0)
+    // target = null
 })
 
 

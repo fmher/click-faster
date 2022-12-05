@@ -9,6 +9,11 @@ p {
     
 }
 
+#countDown {
+    background-color: blanchedalmond;
+    font-size: 50px;
+}
+
 #grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
