@@ -25,7 +25,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     score.innerText = 0
     
     // creates random number that you will have to beat!
-    let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
+    let randomNum = Math.round((Math.random() * 10000) * 0.01) * 10
     scoreToBeat.innerText = randomNum
     console.log(scoreToBeat)
     console.log(score)
@@ -47,7 +47,7 @@ const render = () => {
         scoreUp(+score.innerText)
         
         // creates a pop telling you that you won!
-        if (score.innerText > scoreToBeat.innerText) {
+        if (+score.innerText > +scoreToBeat.innerText) {
             const popUp = document.createElement('p')
             const youWin = document.createTextNode('you win!')
             popUp.appendChild(youWin)
@@ -60,7 +60,7 @@ const render = () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
     
-        if (score.innerText > scoreToBeat.innerText) {
+        if (+score.innerText > +scoreToBeat.innerText) {
             const popUp = document.createElement('p')
             const youWin = document.createTextNode('you win!')
             popUp.appendChild(youWin)
@@ -73,7 +73,7 @@ const render = () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
     
-        if (score.innerText > scoreToBeat.innerText) {
+        if (+score.innerText > +scoreToBeat.innerText) {
             const popUp = document.createElement('p')
             const youWin = document.createTextNode('you win!')
             popUp.appendChild(youWin)
@@ -85,7 +85,7 @@ const render = () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
     
-        if (score.innerText > scoreToBeat.innerText) {
+        if (+score.innerText > +scoreToBeat.innerText) {
             const popUp = document.createElement('p')
             const youWin = document.createTextNode('you win!')
             popUp.appendChild(youWin)
@@ -97,7 +97,7 @@ const render = () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
     
-        if (score.innerText > scoreToBeat.innerText) {
+        if (+score.innerText > +scoreToBeat.innerText) {
             const popUp = document.createElement('p')
             const youWin = document.createTextNode('you win!')
             popUp.appendChild(youWin)
@@ -109,7 +109,7 @@ const render = () => {
         score.innerText = scoreUp(+score.innerText)
         scoreUp(+score.innerText)
     
-        if (score.innerText > scoreToBeat.innerText) {
+        if (+score.innerText > +scoreToBeat.innerText) {
             const popUp = document.createElement('p')
             const youWin = document.createTextNode('you win!')
             popUp.appendChild(youWin)
