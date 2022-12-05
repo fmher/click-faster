@@ -12,9 +12,9 @@ const clickBox5 = document.querySelector('#box5')
 const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
-const countDown = document.querySelector('#countDown')
+const countDown = +document.querySelector('#countDown').innerText
 // checks to see if I targeted the right element correctly
-// console.log(countDown)
+console.log(countDown)
 
 
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
@@ -38,14 +38,27 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         console.log('this is a 1sec')
         targetMaker()
         
+        if(score.innerText > scoreToBeat.innerText) {
+            clearInterval(timer)
+        }
+
     }, 1000)
 
-    let countingDown = setInterval(() => {
-        console.log('timer countdown??')
-        let num = +countDown.innerText
-        num--
-    }, 1000)
+    // let targetGoesBye = setInterval(() => {
+        
+    // })
 
+    //ends timer at 30secs
+    setTimeout(() => clearInterval(timer), (countDown * 900))
+
+
+
+    //trying to get timer to reach 0, also decrement
+    // let countingDown = setInterval(() => {
+    //     console.log('timer countdown??')
+        
+    //     timerCountDown(countDown)
+    // }, 1000)
 })
 
 
@@ -64,6 +77,13 @@ const targetMaker = () => {
     newDiv.onclick = () => {
         randomDiv.removeChild(newDiv)
     }
+
+    let targetRomer = setInterval(() => {
+        randomDiv.removeChild(newDiv)
+        // if (setTimeout(() => clearInterval(timer), (countDown * 900))) {
+        //     clearInterval(targetRomer)
+        // }
+    }, 500)
 }
 
 //so idea does work, dont need loop
@@ -91,6 +111,13 @@ const clickBox = () => {
 const scoreUp = (num) => {
     num += 10
     return num
+}
+
+const timerCountDown = (num) => {
+    console.log(num)
+    num--
+    return num
+    
 }
 
 // clickBox1.addEventListener('click', clickBox)
