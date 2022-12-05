@@ -22,102 +22,49 @@ const pTag = document.querySelector('#p')
 // changes score and score to beat to a number
 // eventually will add a timer when start button is pressed
 const startBtnListener = startBtn.addEventListener('click', () => {
-    score.innerText = 0
+    score.innerText = '0'
     
     // creates random number that you will have to beat!
-    let randomNum = Math.round((Math.random() * 10000) * 0.01) * 10
+    let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
     scoreToBeat.innerText = randomNum
     console.log(scoreToBeat)
     console.log(score)
     console.log(startBtn)
 
-
     render()
     
+    // setTimeout(() = > {
+
+    // })
 })
+//changes score and increments it
+const clickBox = () => {
+    score.innerText = scoreUp(+score.innerText)
+    scoreUp(+score.innerText)
+
+    if (+score.innerText > +scoreToBeat.innerText) {
+        const popUp = document.createElement('p')
+        const youWin = document.createTextNode('you win!')
+        popUp.appendChild(youWin)
+        pTag.appendChild(popUp)
+
+    }
+}
+
 
 // allows game to function
-const render = () => {
+clickBox1.addEventListener('click', clickBox)
+    
+clickbox2.addEventListener('click', clickBox)
+    
+clickbox3.addEventListener('click', clickBox)
+    
+clickbox4.addEventListener('click', clickBox)
+    
+clickbox5.addEventListener('click', clickBox)
+    
+clickbox6.addEventListener('click', clickBox)
 
-    clickBox1.addEventListener('click', () => {
-       score.innerText = scoreUp(+score.innerText)
-      
-       // win condition works, but if pressed to fast you break game, idk
-       // goes up by 10!!
-        scoreUp(+score.innerText)
-        
-        // creates a pop telling you that you won!
-        if (+score.innerText > +scoreToBeat.innerText) {
-            const popUp = document.createElement('p')
-            const youWin = document.createTextNode('you win!')
-            popUp.appendChild(youWin)
-            pTag.appendChild(popUp)
-        } 
-    
-    })
-    
-    clickbox2.addEventListener('click', () => {
-        score.innerText = scoreUp(+score.innerText)
-        scoreUp(+score.innerText)
-    
-        if (+score.innerText > +scoreToBeat.innerText) {
-            const popUp = document.createElement('p')
-            const youWin = document.createTextNode('you win!')
-            popUp.appendChild(youWin)
-            pTag.appendChild(popUp)
-
-        } 
-    })
-    
-    clickbox3.addEventListener('click', () => {
-        score.innerText = scoreUp(+score.innerText)
-        scoreUp(+score.innerText)
-    
-        if (+score.innerText > +scoreToBeat.innerText) {
-            const popUp = document.createElement('p')
-            const youWin = document.createTextNode('you win!')
-            popUp.appendChild(youWin)
-            pTag.appendChild(popUp)
-        } 
-    })
-    
-    clickbox4.addEventListener('click', () => {
-        score.innerText = scoreUp(+score.innerText)
-        scoreUp(+score.innerText)
-    
-        if (+score.innerText > +scoreToBeat.innerText) {
-            const popUp = document.createElement('p')
-            const youWin = document.createTextNode('you win!')
-            popUp.appendChild(youWin)
-            pTag.appendChild(popUp)
-        } 
-    })
-    
-    clickbox5.addEventListener('click', () => {
-        score.innerText = scoreUp(+score.innerText)
-        scoreUp(+score.innerText)
-    
-        if (+score.innerText > +scoreToBeat.innerText) {
-            const popUp = document.createElement('p')
-            const youWin = document.createTextNode('you win!')
-            popUp.appendChild(youWin)
-            pTag.appendChild(popUp)
-        } 
-    })
-    
-    clickbox6.addEventListener('click', () => {
-        score.innerText = scoreUp(+score.innerText)
-        scoreUp(+score.innerText)
-    
-        if (+score.innerText > +scoreToBeat.innerText) {
-            const popUp = document.createElement('p')
-            const youWin = document.createTextNode('you win!')
-            popUp.appendChild(youWin)
-            pTag.appendChild(popUp)
-        } 
-    
-    })
-}
 
 
 //adds the score up, increments
@@ -139,7 +86,8 @@ resetBtn.addEventListener('click', () => {
 
     // creates error
     // startBtn = null
-
+    score.innerText = '0'
+    // scoreUp(score.innerText)
     
 })
 
