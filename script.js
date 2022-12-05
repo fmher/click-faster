@@ -37,14 +37,9 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         console.log('this is a 2sec')
         
         targetMaker()
-        for (let i = 0; i >= clickBoxArr.length; i++) {
-            console.log(i)
-            if (clickBoxArr[i] = target) {
-                clearInterval(timer)
-            }
-        }
         
-    }, 2000)
+        
+    }, 1000)
 
     // target.remove()
 
@@ -62,6 +57,10 @@ const targetMaker = () => {
     // randomDiv.addEventListener('click', clickBox)
     //WORKS, CLICKS ONLY TARGET TO INCREASE SCORE
     newDiv.addEventListener('click', clickBox)
+
+    newDiv.onclick = () => {
+        randomDiv.removeChild(newDiv)
+    }
 }
 
 //so idea does work, dont need loop
@@ -117,6 +116,7 @@ resetBtn.addEventListener('click', () => {
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
 
+    clearInterval(timer, 0)
     
 })
 
