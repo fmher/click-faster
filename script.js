@@ -16,6 +16,8 @@ const target = document.querySelector('#target')
 // console.log(clickBox1.getAttribute('data-value'))
 
 
+const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
+                    clickBox5, clickBox6]
 
 //SOMEHOW THE START BUTTON IS KEEPING HOLD ON INCREMENT AND IS WHY IM
 //ABLE TO START AT A HIGHER NUM THAN 0 WHEN I RESET
@@ -32,18 +34,27 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // console.log(score)
     // console.log(startBtn)
     
-    const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
-                        clickBox5, clickBox6]
     setTimeout(() => {
-        // for(let i = 600; i > 0; i--) {
-        //     console.log(i)
-        // }
-        console.log('this is a 2sec')
+        console.log('this is a 1sec')
 
-    }, 2000)
+
+    }, 1000)
     
 
 })
+
+const targetMaker = () => {
+    const randomIndex = Math.round(Math.random() * 5)
+    const randomDiv = clickBoxArr[randomIndex]
+    const newDiv = document.createElement('div')
+    //creating new div to make targets at random divs
+    
+}
+
+//so idea does work, dont need loop
+// let arr = [1, 'word',3,'2wrod',5,'lels']
+// let randomIndex = Math.round(Math.random() * 5)
+// console.log('the arr numbers!!!',arr[randomIndex])
 
 //changes score and increments it
 // allows game to function
