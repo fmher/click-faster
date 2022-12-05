@@ -5,11 +5,11 @@ const grid2 = document.querySelector('#grid')
 const score = document.querySelector('#score-holder')
 const scoreToBeat = document.querySelector('#score-to-beat')
 const clickBox1 = document.querySelector('#box1')
-const clickbox2 = document.querySelector('#box2')
-const clickbox3 = document.querySelector('#box3')
-const clickbox4 = document.querySelector('#box4')
-const clickbox5 = document.querySelector('#box5')
-const clickbox6 = document.querySelector('#box6')
+const clickBox2 = document.querySelector('#box2')
+const clickBox3 = document.querySelector('#box3')
+const clickBox4 = document.querySelector('#box4')
+const clickBox5 = document.querySelector('#box5')
+const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 // checks to see if I targeted the right element correctly
@@ -32,6 +32,8 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // console.log(score)
     // console.log(startBtn)
     
+    const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
+                        clickBox5, clickBox6]
     setTimeout(() => {
         // for(let i = 600; i > 0; i--) {
         //     console.log(i)
@@ -61,17 +63,17 @@ const clickBox = () => {
 }
 
 
-clickBox1.addEventListener('click', clickBox)
+// clickBox1.addEventListener('click', clickBox)
+target.addEventListener('click', clickBox)
+// clickBox2.addEventListener('click', clickBox)
     
-// clickbox2.addEventListener('click', clickBox)
+// clickBox3.addEventListener('click', clickBox)
     
-// clickbox3.addEventListener('click', clickBox)
+// clickBox4.addEventListener('click', clickBox)
     
-// clickbox4.addEventListener('click', clickBox)
+// clickBox5.addEventListener('click', clickBox)
     
-// clickbox5.addEventListener('click', clickBox)
-    
-// clickbox6.addEventListener('click', clickBox)
+// clickBox6.addEventListener('click', clickBox)
 
 
 
