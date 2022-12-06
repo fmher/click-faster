@@ -63,22 +63,22 @@ const youLost = () => {
     }
 
 // allows timer to decrement
-// timerCountDown(countDown)
+// timerCountDown(+countDown2.innerText)
 
 }
 
 //NOT USED YET, suppose to decrement
-//errrors
+//works, gotta adjust countdown
 const timerCountDown = (num) => {
     let decrement = setInterval(() => {
         // console.log('   ', num)
         num--
-        +countDown2.innerText; num
+        countDown2.innerText = num
         if (num === 0) clearInterval(decrement)
     }, 1000)
     console.log(num)
 }
-console.log(timerCountDown(+countDown2.innerText))
+// console.log(timerCountDown(countDown2.innerText))
 
 
 
