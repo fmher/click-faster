@@ -13,8 +13,10 @@ const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = +document.querySelector('#countDown').innerText
+const countDown2 = document.querySelector('#countDown')
 // checks to see if I targeted the right element correctly
-// console.log(countDown)
+// console.log(countDown2.innerText = 20)
+// console.log(startBtn.innerText = 'hello')
 
 
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
@@ -40,11 +42,13 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         }
         
     }, 1000)
-
+    setTimeout(() => clearInterval(timer), (countDown * 990))
     //ends game around 30sec or what number is by timer
-    setTimeout(() => clearInterval(timer), (countDown * 900))
     //timer ends and creates a pop up you lost!
-    let losePopUp = setTimeout(youLost, (countDown * 950))
+    let losePopUp = setTimeout(() => {
+        
+        youLost()
+    }, (countDown * 1000))
 
 })
 
@@ -58,7 +62,24 @@ const youLost = () => {
 
     }
 
+// allows timer to decrement
+// timerCountDown(countDown)
+
 }
+
+//NOT USED YET, suppose to decrement
+//errrors
+const timerCountDown = (num) => {
+    let decrement = setInterval(() => {
+        // console.log('   ', num)
+        num--
+        +countDown2.innerText; num
+        if (num === 0) clearInterval(decrement)
+    }, 1000)
+    console.log(num)
+}
+console.log(timerCountDown(+countDown2.innerText))
+
 
 
 //changes score and increments it
@@ -95,6 +116,7 @@ const targetMaker = () => {
     newDiv.onclick = () => {
         randomDiv.removeChild(newDiv)
     }
+
 // removes all targets at 30sec or countDown time
     let targetRemover = setInterval(() => {
 
@@ -121,13 +143,7 @@ const scoreUp = (num) => {
     num += 10
     return num
 }
-//NOT USED YET, suppose to decrement
-const timerCountDown = (num) => {
-    console.log(num)
-    num--
-    return num
-    
-}
+
 
 // clickBox1.addEventListener('click', clickBox)
 // target.addEventListener('click', clickBox)
