@@ -20,10 +20,6 @@ console.log(countDown)
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
                     clickBox5, clickBox6];
 
-
-//SOMEHOW THE START BUTTON IS KEEPING HOLD ON INCREMENT AND IS WHY IM
-//ABLE TO START AT A HIGHER NUM THAN 0 WHEN I RESET
-
 // changes score and score to beat to a number
 // eventually will add a timer when start button is pressed
 const startBtnListener = startBtn.addEventListener('click', () => {
@@ -40,26 +36,18 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         
         if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
+            // setTimeout(() => clearInterval(timer), 1)
         }
-
+        
     }, 1000)
 
-    // let targetGoesBye = setInterval(() => {
-        
-    // })
-
-    //ends timer at 30secs
-    setTimeout(() => clearInterval(timer), (countDown * 900))
+    //ends game around 30sec or what number is by timer
+    setTimeout(() => clearInterval(timer), (countDown * 999))
 
 
-
-    //trying to get timer to reach 0, also decrement
-    // let countingDown = setInterval(() => {
-    //     console.log('timer countdown??')
-        
-    //     timerCountDown(countDown)
-    // }, 1000)
 })
+
+
 
 
 const targetMaker = () => {
@@ -77,19 +65,22 @@ const targetMaker = () => {
     newDiv.onclick = () => {
         randomDiv.removeChild(newDiv)
     }
-
-    let targetRomer = setInterval(() => {
-        randomDiv.removeChild(newDiv)
+// removes all targets at 30sec or countDown time
+    let targetRemover = setInterval(() => {
+        clearInterval(targetRemover)
         // if (setTimeout(() => clearInterval(timer), (countDown * 900))) {
-        //     clearInterval(targetRomer)
-        // }
+            //     clearInterval(targetRemover)
+            // }
+            if (newDiv != null) {
+                randomDiv.removeChild(newDiv)
+        } else clearInterval(targetRemover)
+
     }, 500)
+
 }
 
-//so idea does work, dont need loop
-// let arr = [1, 'word',3,'2wrod',5,'lels']
-// let randomIndex = Math.round(Math.random() * 5)
-// console.log('the arr numbers!!!',arr[randomIndex])
+
+
 
 //changes score and increments it
 // allows game to function
@@ -104,7 +95,7 @@ const clickBox = () => {
         popUp.appendChild(youWin)
         pTag.appendChild(popUp)
         //gets removed, ptag was not on top, target could be seen and touched
-        target.remove()
+        // target.remove()
     }
 }
 
@@ -112,7 +103,7 @@ const scoreUp = (num) => {
     num += 10
     return num
 }
-
+//NOT USED YET, suppose to decrement
 const timerCountDown = (num) => {
     console.log(num)
     num--
@@ -123,18 +114,13 @@ const timerCountDown = (num) => {
 // clickBox1.addEventListener('click', clickBox)
 // target.addEventListener('click', clickBox)
 // clickBox2.addEventListener('click', clickBox)
-    
 // clickBox3.addEventListener('click', clickBox)
-    
 // clickBox4.addEventListener('click', clickBox)
-    
 // clickBox5.addEventListener('click', clickBox)
-    
 // clickBox6.addEventListener('click', clickBox)
 
 
 
-//adds the score up, increments
 
 
 resetBtn.addEventListener('click', () => {
@@ -146,9 +132,9 @@ resetBtn.addEventListener('click', () => {
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
 
-    //does not work
-    // clearInterval(timer, 0)
-    // target = null
+    // clearInterval(targetMaker())
+    target = null
+
 })
 
 
