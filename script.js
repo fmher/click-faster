@@ -34,16 +34,30 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // creates target every 1 secs
     let timer = setInterval(() => {
         console.log('this is a 1sec')
+// SOMEHOW GOTTA STOP TARGETMAKER WHEN RESET CLICKED
         targetMaker()
-        
+        console.log('targetmaker is working!!!!!')
         if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
-            // setTimeout(() => clearInterval(timer), 1)
+
+        } 
+        else {
+
+// SO WORKS BUT HAVE TO DOUBLE CLICK RESETBTN
+            resetBtn.onclick = () => {
+                clearTimeout(timer)
+//prevents losepopup from showing
+                clearTimeout(losePopUp)
+            }
         }
+
         
     }, 1000)
+
+
     setTimeout(() => clearInterval(timer), (+countDown.innerText * 990))
     //ends game around 30sec or what number is by timer
+
     //timer ends and creates a pop up you lost!
     let losePopUp = setTimeout(() => {
         
@@ -53,8 +67,11 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // allows timer to decrement
     // timerCountDown(+countDown2.innerText)
     timerCountDown(+countDown.innerText)
-
-
+//  DONT WORK -------------------------------------
+    // resetBtn.onclick = () => {
+    //     clearTimeout(timer)
+    //     clearTimeout(losePopUp)
+    // }
 })
 
 
@@ -85,7 +102,11 @@ const timerCountDown = (num) => {
         else if (score.innerText > scoreToBeat.innerText) {
             clearInterval(decrement)
         }
-        else resetBtn.addEventListener('click', clearInterval(decrement))
+        // resets timer and without it, it breaks game
+        resetBtn.onclick = () => {
+            clearInterval(decrement)
+            // countDown.innerText = 30
+        }
     }, 1000)
     console.log(num)
 }
@@ -124,12 +145,12 @@ const targetMaker = () => {
     // randomDiv.addEventListener('click', clickBox)
     //WORKS, CLICKS ONLY TARGET TO INCREASE SCORE
     newDiv.addEventListener('click', clickBox)
-
+//  REMOVES TARGET WHEN CLICKED ON
     newDiv.onclick = () => {
         randomDiv.removeChild(newDiv)
     }
 
-// removes all targets at 30sec or countDown time
+// REMOVES TARGETS WITHIN SET TIME!------------------------------
     let targetRemover = setInterval(() => {
 
         //WORKS NOW BUT SHOWS UP ERROR WHEN HAS NOTHING TO REMOVE
@@ -141,12 +162,17 @@ const targetMaker = () => {
             // }
             if (newDiv != null) {
                 randomDiv.removeChild(newDiv)
-        } else if (newDiv = null) clearInterval(targetRemover)
+        } 
+        // NO WORKING! --------------------------------
+        // else if (newDiv = null) clearInterval(targetRemover)
         // else resetBtn.addEventListener('click', clearInterval(targetRemover))
 
     }, 500)
 
-    // if (resetBtn.onclick) clearInterval(targetRemover)
+    // DONT WORK--------------------------------------
+    // resetBtn.onclick = () => {
+    //     clearInterval(timer)
+    // }
 
 }
 
@@ -159,7 +185,7 @@ const scoreUp = (num) => {
     return num
 }
 
-
+//----------------TEST-------RUNS--------------------------
 // clickBox1.addEventListener('click', clickBox)
 // target.addEventListener('click', clickBox)
 // clickBox2.addEventListener('click', clickBox)
@@ -182,7 +208,7 @@ resetBtn.addEventListener('click', () => {
     pTag.innerText = null
     countDown.innerText = 30
     // clearInterval(targetMaker())
-    
+    // clearInterval(startBtnListener)
 
 })
 
