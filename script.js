@@ -36,7 +36,6 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         console.log('this is a 1sec')
 // SOMEHOW GOTTA STOP TARGETMAKER WHEN RESET CLICKED
         targetMaker()
-        console.log('targetmaker is working!!!!!')
         if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
 
@@ -44,11 +43,11 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         else {
 
 // SO WORKS BUT HAVE TO DOUBLE CLICK RESETBTN
-            resetBtn.onclick = () => {
+            resetBtn.addEventListener('click', () => {
                 clearTimeout(timer)
 //prevents losepopup from showing
                 clearTimeout(losePopUp)
-            }
+            })
         }
 
         
@@ -211,7 +210,6 @@ resetBtn.addEventListener('click', () => {
     // clearInterval(startBtnListener)
 
 })
-
 
 
 
