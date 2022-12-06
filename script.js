@@ -13,7 +13,7 @@ const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = document.querySelector('#countDown')
-const countDown2 = document.querySelector('#countDown')
+// const countDown2 = document.querySelector('#countDown')
 // checks to see if I targeted the right element correctly
 // console.log(countDown2.innerText = 20)
 // console.log(startBtn.innerText = 'hello')
@@ -82,6 +82,9 @@ const timerCountDown = (num) => {
         num--
         countDown.innerText = num
         if (num === 0) clearInterval(decrement)
+        else if (score.innerText > scoreToBeat.innerText) {
+            clearInterval(decrement)
+        }
     }, 1000)
     console.log(num)
 }
@@ -173,7 +176,7 @@ resetBtn.addEventListener('click', () => {
     score.innerText = 'score'
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
-
+    countDown.innerText = 30
     // clearInterval(targetMaker())
     
 
