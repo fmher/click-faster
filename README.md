@@ -21,7 +21,7 @@ The whole point of the game is to much sure your click your targets within in a 
 * change mouse cursor into a target cursor
 * show timer on the screen
 * have buttons to start timer and game
-* have a reset button to rest game, to play again, and reset timer
+* have a reset button to restart game, to play again, and reset timer
 
 # Strech Goals
 
