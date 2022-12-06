@@ -12,7 +12,7 @@ const clickBox5 = document.querySelector('#box5')
 const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
-const countDown = +document.querySelector('#countDown').innerText
+const countDown = document.querySelector('#countDown')
 const countDown2 = document.querySelector('#countDown')
 // checks to see if I targeted the right element correctly
 // console.log(countDown2.innerText = 20)
@@ -42,15 +42,25 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         }
         
     }, 1000)
-    setTimeout(() => clearInterval(timer), (countDown * 990))
+    setTimeout(() => clearInterval(timer), (+countDown.innerText * 990))
     //ends game around 30sec or what number is by timer
     //timer ends and creates a pop up you lost!
     let losePopUp = setTimeout(() => {
         
         youLost()
-    }, (countDown * 1000))
+    }, (+countDown.innerText * 1000))
+
+    // allows timer to decrement
+    // timerCountDown(+countDown2.innerText)
+    timerCountDown(+countDown.innerText)
+
 
 })
+
+
+
+
+
 
 // create a pop up, you lose, when dont beat SCORETOBEAT in time
 const youLost = () => {
@@ -62,9 +72,6 @@ const youLost = () => {
 
     }
 
-// allows timer to decrement
-// timerCountDown(+countDown2.innerText)
-
 }
 
 //NOT USED YET, suppose to decrement
@@ -73,12 +80,13 @@ const timerCountDown = (num) => {
     let decrement = setInterval(() => {
         // console.log('   ', num)
         num--
-        countDown2.innerText = num
+        countDown.innerText = num
         if (num === 0) clearInterval(decrement)
     }, 1000)
     console.log(num)
 }
 // console.log(timerCountDown(countDown2.innerText))
+// console.log(timerCountDown(+countDown.innerText))
 
 
 
