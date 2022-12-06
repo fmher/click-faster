@@ -13,16 +13,12 @@ const clickBox6 = document.querySelector('#box6')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = document.querySelector('#countDown')
-// const countDown2 = document.querySelector('#countDown')
-// checks to see if I targeted the right element correctly
-// console.log(countDown2.innerText = 20)
-// console.log(startBtn.innerText = 'hello')
 
 
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
                     clickBox5, clickBox6];
 
-// changes score and score to beat to a number
+// changes score and score-to-beat to a number
 // eventually will add a timer when start button is pressed
 const startBtnListener = startBtn.addEventListener('click', () => {
     score.innerText = '0'
@@ -34,28 +30,24 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     // creates target every 1 secs
     let timer = setInterval(() => {
         console.log('this is a 1sec')
-// SOMEHOW GOTTA STOP TARGETMAKER WHEN RESET CLICKED
         targetMaker()
-        if(score.innerText > scoreToBeat.innerText) {
+        if(score.innerText >= scoreToBeat.innerText) {
             clearInterval(timer)
-
+            clearTimeout(losePopUp)
         } 
         else {
-
-// SO WORKS BUT HAVE TO DOUBLE CLICK RESETBTN
+// WOKRS NOW. nO LONGER HAVE TO DOUBLE TAP
             resetBtn.addEventListener('click', () => {
                 clearTimeout(timer)
 //prevents losepopup from showing
                 clearTimeout(losePopUp)
             })
         }
-
-        
     }, 1000)
 
 
-    setTimeout(() => clearInterval(timer), (+countDown.innerText * 990))
     //ends game around 30sec or what number is by timer
+    setTimeout(() => clearInterval(timer), (+countDown.innerText * 990))
 
     //timer ends and creates a pop up you lost!
     let losePopUp = setTimeout(() => {
@@ -63,14 +55,9 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         youLost()
     }, (+countDown.innerText * 1000))
 
-    // allows timer to decrement
-    // timerCountDown(+countDown2.innerText)
+    // allows timer to decrement WHEN BUTTON PRESSED
     timerCountDown(+countDown.innerText)
-//  DONT WORK -------------------------------------
-    // resetBtn.onclick = () => {
-    //     clearTimeout(timer)
-    //     clearTimeout(losePopUp)
-    // }
+
 })
 
 
@@ -90,11 +77,10 @@ const youLost = () => {
 
 }
 
-//NOT USED YET, suppose to decrement
-//works, gotta adjust countdown
+
+//works, DECREMENTS TIMER
 const timerCountDown = (num) => {
     let decrement = setInterval(() => {
-        // console.log('   ', num)
         num--
         countDown.innerText = num
         if (num === 0) clearInterval(decrement)
@@ -107,10 +93,8 @@ const timerCountDown = (num) => {
             // countDown.innerText = 30
         }
     }, 1000)
-    console.log(num)
 }
-// console.log(timerCountDown(countDown2.innerText))
-// console.log(timerCountDown(+countDown.innerText))
+
 
 
 
@@ -126,13 +110,12 @@ const clickBox = () => {
         const youWin = document.createTextNode('You win!')
         popUp.appendChild(youWin)
         pTag.appendChild(popUp)
-        //gets removed, ptag was not on top, target could be seen and touched
-        // target.remove()
+
     }
 }
 
 
-
+//CREATES TARGETS
 const targetMaker = () => {
     const randomIndex = Math.round(Math.random() * 5)
     const randomDiv = clickBoxArr[randomIndex]
@@ -140,9 +123,6 @@ const targetMaker = () => {
     //creating new div to make targets at random divs
     newDiv.setAttribute('id', 'target')
     randomDiv.appendChild(newDiv)
-    //WORKS, CLICKS BOX TO INCREASE SCORE
-    // randomDiv.addEventListener('click', clickBox)
-    //WORKS, CLICKS ONLY TARGET TO INCREASE SCORE
     newDiv.addEventListener('click', clickBox)
 //  REMOVES TARGET WHEN CLICKED ON
     newDiv.onclick = () => {
@@ -151,34 +131,17 @@ const targetMaker = () => {
 
 // REMOVES TARGETS WITHIN SET TIME!------------------------------
     let targetRemover = setInterval(() => {
-
-        //WORKS NOW BUT SHOWS UP ERROR WHEN HAS NOTHING TO REMOVE
-        //DUE TO, USER CLICKING TARGET TO GET POINTS
-        //SHOULD ASK IF OKAY, AN ERROR BECAUSE IT WORKS
         clearInterval(targetRemover)
-        // if (setTimeout(() => clearInterval(timer), (countDown * 900))) {
-            //     clearInterval(targetRemover)
-            // }
-            if (newDiv != null) {
-                randomDiv.removeChild(newDiv)
+        if (newDiv != null) {
+            randomDiv.removeChild(newDiv)
         } 
-        // NO WORKING! --------------------------------
-        // else if (newDiv = null) clearInterval(targetRemover)
-        // else resetBtn.addEventListener('click', clearInterval(targetRemover))
-
     }, 500)
-
-    // DONT WORK--------------------------------------
-    // resetBtn.onclick = () => {
-    //     clearInterval(timer)
-    // }
-
 }
 
 
 
 
-
+//SIMPLE FUNC THAT INCREMENTS SCORE BY 10
 const scoreUp = (num) => {
     num += 10
     return num
@@ -196,18 +159,12 @@ const scoreUp = (num) => {
 
 
 
-// NEED TO FIGURE OUT HOW TO REMOVE TARGETS FROM DIF SCOPE WHEN CLICK RESET
+// RESETS 
 resetBtn.addEventListener('click', () => {
-    console.log('reset button pressed!')
-
-    //resets score and score to beat back to normal
-
     score.innerText = 'score'
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
     countDown.innerText = 30
-    // clearInterval(targetMaker())
-    // clearInterval(startBtnListener)
 
 })
 
