@@ -85,6 +85,7 @@ const timerCountDown = (num) => {
         else if (score.innerText > scoreToBeat.innerText) {
             clearInterval(decrement)
         }
+        else resetBtn.addEventListener('click', clearInterval(decrement))
     }, 1000)
     console.log(num)
 }
@@ -133,16 +134,19 @@ const targetMaker = () => {
 
         //WORKS NOW BUT SHOWS UP ERROR WHEN HAS NOTHING TO REMOVE
         //DUE TO, USER CLICKING TARGET TO GET POINTS
-        //SHOULD ASK IF OKAY, A ERROR BECAUSE IT WORKS
+        //SHOULD ASK IF OKAY, AN ERROR BECAUSE IT WORKS
         clearInterval(targetRemover)
         // if (setTimeout(() => clearInterval(timer), (countDown * 900))) {
             //     clearInterval(targetRemover)
             // }
             if (newDiv != null) {
                 randomDiv.removeChild(newDiv)
-        } else clearInterval(targetRemover)
+        } else if (newDiv = null) clearInterval(targetRemover)
+        // else resetBtn.addEventListener('click', clearInterval(targetRemover))
 
     }, 500)
+
+    // if (resetBtn.onclick) clearInterval(targetRemover)
 
 }
 
