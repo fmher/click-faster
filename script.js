@@ -14,7 +14,7 @@ const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = +document.querySelector('#countDown').innerText
 // checks to see if I targeted the right element correctly
-console.log(countDown)
+// console.log(countDown)
 
 
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
@@ -49,6 +49,24 @@ const startBtnListener = startBtn.addEventListener('click', () => {
 
 
 
+//changes score and increments it
+// allows game to function
+const clickBox = () => {
+    //ADDING + IN FRONT ON STRING CONVERTS IT TO NUMBER, IF IS NUMBER
+    score.innerText = scoreUp(+score.innerText)
+    scoreUp(+score.innerText)
+
+    if (+score.innerText > +scoreToBeat.innerText) {
+        const popUp = document.createElement('p')
+        const youWin = document.createTextNode('You win!')
+        popUp.appendChild(youWin)
+        pTag.appendChild(popUp)
+        //gets removed, ptag was not on top, target could be seen and touched
+        // target.remove()
+    }
+}
+
+
 
 const targetMaker = () => {
     const randomIndex = Math.round(Math.random() * 5)
@@ -67,6 +85,10 @@ const targetMaker = () => {
     }
 // removes all targets at 30sec or countDown time
     let targetRemover = setInterval(() => {
+
+        //WORKS NOW BUT SHOWS UP ERROR WHEN HAS NOTHING TO REMOVE
+        //DUE TO, USER CLICKING TARGET TO GET POINTS
+        //SHOULD ASK IF OKAY, A ERROR BECAUSE IT WORKS
         clearInterval(targetRemover)
         // if (setTimeout(() => clearInterval(timer), (countDown * 900))) {
             //     clearInterval(targetRemover)
@@ -82,22 +104,6 @@ const targetMaker = () => {
 
 
 
-//changes score and increments it
-// allows game to function
-const clickBox = () => {
-    //ADDING + IN FRONT ON STRING CONVERTS IT TO NUMBER, IF IS NUMBER
-    score.innerText = scoreUp(+score.innerText)
-    scoreUp(+score.innerText)
-
-    if (+score.innerText > +scoreToBeat.innerText) {
-        const popUp = document.createElement('p')
-        const youWin = document.createTextNode('You win!')
-        popUp.appendChild(youWin)
-        pTag.appendChild(popUp)
-        //gets removed, ptag was not on top, target could be seen and touched
-        // target.remove()
-    }
-}
 
 const scoreUp = (num) => {
     num += 10
@@ -122,18 +128,18 @@ const timerCountDown = (num) => {
 
 
 
-
+// NEED TO FIGURE OUT HOW TO REMOVE TARGETS FROM DIF SCOPE WHEN CLICK RESET
 resetBtn.addEventListener('click', () => {
     console.log('reset button pressed!')
 
     //resets score and score to beat back to normal
-    // console.log('holding score', score.innerText)
+
     score.innerText = 'score'
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
 
     // clearInterval(targetMaker())
-    target = null
+    
 
 })
 
