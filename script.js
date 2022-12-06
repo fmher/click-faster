@@ -42,11 +42,23 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     }, 1000)
 
     //ends game around 30sec or what number is by timer
-    setTimeout(() => clearInterval(timer), (countDown * 999))
-
+    setTimeout(() => clearInterval(timer), (countDown * 900))
+    //timer ends and creates a pop up you lost!
+    let losePopUp = setTimeout(youLost, (countDown * 950))
 
 })
 
+// create a pop up, you lose, when dont beat SCORETOBEAT in time
+const youLost = () => {
+    if (score.innerText < scoreToBeat.innerText) {
+        const popUp = document.createElement('p')
+        const youWin = document.createTextNode('You Lost! Try again!')
+        popUp.appendChild(youWin)
+        pTag.appendChild(popUp)
+
+    }
+
+}
 
 
 //changes score and increments it
