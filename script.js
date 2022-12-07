@@ -10,13 +10,15 @@ const clickBox3 = document.querySelector('#box3')
 const clickBox4 = document.querySelector('#box4')
 const clickBox5 = document.querySelector('#box5')
 const clickBox6 = document.querySelector('#box6')
+const clickBox7 = document.querySelector('#box7')
+const clickBox8 = document.querySelector('#box8')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = document.querySelector('#countDown')
 
-
+//An array of all the divs, red boxes
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
-                    clickBox5, clickBox6];
+                    clickBox5, clickBox6, clickBox7, clickBox8];
 
 // changes score and score-to-beat to a number
 // eventually will add a timer when start button is pressed
@@ -117,7 +119,8 @@ const clickBox = () => {
 
 //CREATES TARGETS
 const targetMaker = () => {
-    const randomIndex = Math.round(Math.random() * 5)
+    const randomIndex = Math.round(Math.random() * clickBoxArr.length)
+    // console.log(randomIndex)
     const randomDiv = clickBoxArr[randomIndex]
     const newDiv = document.createElement('div')
     //creating new div to make targets at random divs
