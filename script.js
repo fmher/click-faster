@@ -1,7 +1,6 @@
 const startBtn = document.querySelector('#start')
 const resetBtn = document.querySelector('#reset')
 const grid = document.querySelector('#grid')
-const grid2 = document.querySelector('#grid')
 const score = document.querySelector('#score-holder')
 const scoreToBeat = document.querySelector('#score-to-beat')
 const clickBox1 = document.querySelector('#box1')
@@ -31,6 +30,8 @@ const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4,
 // Allows game to start
 const startBtnListener = startBtn.addEventListener('click', () => {
     score.innerText = '0'
+    pTag.innerText = null
+    countDown.innerText = 30
     
     // creates random number that you will have to beat!
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10 
@@ -45,7 +46,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
         // if score is = or greater stops timer and you losing
         if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
-            clearTimeout(losePopUp)
+            clearInterval(losePopUp)
         } 
         else {
             // stops timer from running and losing pop from showing after clicked
