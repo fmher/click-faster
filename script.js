@@ -25,7 +25,7 @@ const instructions = document.querySelector('#instructions');
 //An array of all the divs, red boxes
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, clickBox5, clickBox6, clickBox7, clickBox8, clickBox9, clickBox10, clickBox11, clickBox12, clickBox13, clickBox14];
 
-
+//click instruction btn then explains the game
 instructions.addEventListener('click', () => {
     const popUp = document.createElement('p')
     popUp.setAttribute('id', 'pID')
@@ -52,10 +52,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     
     // creates target every 0.8 secs
     let timer = setInterval(() => {
-        // console.log('this is a 1sec')
-        // creates targets!
         targetMaker()
-        // targetMaker()
         // if score is = or greater stops timer and you losing
         if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
@@ -71,12 +68,11 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     }, 800)
 
 
-    //ends game around 30sec or what number is by timer
+    //ends game around 30sec or what number is +countDown.innerText
     setTimeout(() => clearInterval(timer), (+countDown.innerText * 990))
 
     //timer ends and creates a pop up you lost!
     let losePopUp = setTimeout(() => {
-        
         youLost()
     }, (+countDown.innerText * 999))
 
@@ -125,8 +121,6 @@ const timerCountDown = (num) => {
 }
 
 
-// +score.innerText - 10 >= +scoreToBeat.innerText
-
 //changes score and increments it
 // allows game to function
 const clickBox = () => {
@@ -135,7 +129,7 @@ const clickBox = () => {
     scoreUp(+score.innerText)
 
     if (+score.innerText - 20 >= +scoreToBeat.innerText) {
-        // this allows you the asynchronous to work with each other. Due to setTimeout, setInterval, clearSetTimeout, clearInterval always functioning with a slight lag
+        // this allows asynchronous to work with each other. Due to setTimeout, setInterval, clearSetTimeout, clearInterval always functioning with a slight lag
         setTimeout( () => {
             const popUp = document.createElement('p')
             popUp.setAttribute('id', 'overachiever')
@@ -194,18 +188,6 @@ const scoreUp = (num) => {
     num += 10
     return num
 }
-
-//----------------TEST-------RUNS--------------------------
-// clickBox1.addEventListener('click', clickBox)
-// target.addEventListener('click', clickBox)
-// clickBox2.addEventListener('click', clickBox)
-// clickBox3.addEventListener('click', clickBox)
-// clickBox4.addEventListener('click', clickBox)
-// clickBox5.addEventListener('click', clickBox)
-// clickBox6.addEventListener('click', clickBox)
-
-
-
 
 // RESETS 
 resetBtn.addEventListener('click', () => {
