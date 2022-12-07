@@ -29,7 +29,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     
     // creates target every 1 secs
     let timer = setInterval(() => {
-        console.log('this is a 1sec')
+        // console.log('this is a 1sec')
         targetMaker()
         if(score.innerText >= scoreToBeat.innerText) {
             clearInterval(timer)
@@ -123,6 +123,10 @@ const targetMaker = () => {
     //creating new div to make targets at random divs
     newDiv.setAttribute('id', 'target')
     randomDiv.appendChild(newDiv)
+
+    // console.log('randomdiv = ',randomDiv)
+    // console.log('   newDiv =', newDiv)
+
     newDiv.addEventListener('click', clickBox)
 //  REMOVES TARGET WHEN CLICKED ON
     newDiv.onclick = () => {
