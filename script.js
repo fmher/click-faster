@@ -74,7 +74,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     //timer ends and creates a pop up you lost!
     let losePopUp = setTimeout(() => {
         youLost()
-    }, (+countDown.innerText * 999))
+    }, (+countDown.innerText * 1010))
 
     // allows timer to decrement WHEN BUTTON PRESSED
     timerCountDown(+countDown.innerText)
@@ -89,6 +89,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
 // create a pop up, you lose, when dont beat SCORE-TO-BEAT within time
 const youLost = () => {
     if (score.innerText <= scoreToBeat.innerText) {
+
         const popUp = document.createElement('p')
         const youWin = document.createTextNode('You Lost! Try again!')
         popUp.appendChild(youWin)
