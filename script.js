@@ -134,7 +134,7 @@ const clickBox = () => {
         setTimeout( () => {
             const popUp = document.createElement('p')
             popUp.setAttribute('id', 'overachiever')
-            const youWin = document.createTextNode('Wow, you got extra point you over achiever. Congrats winner!')
+            const youWin = document.createTextNode('Wow, you got extra points you over achiever. Congrats winner!')
             popUp.appendChild(youWin)
             pTag.appendChild(popUp)
         }, 1)
