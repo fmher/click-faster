@@ -12,13 +12,21 @@ const clickBox5 = document.querySelector('#box5')
 const clickBox6 = document.querySelector('#box6')
 const clickBox7 = document.querySelector('#box7')
 const clickBox8 = document.querySelector('#box8')
+const clickBox9 = document.querySelector('#box9')
+const clickBox10 = document.querySelector('#box10')
+const clickBox11 = document.querySelector('#box11')
+const clickBox12 = document.querySelector('#box12')
+const clickBox13 = document.querySelector('#box13')
+const clickBox14 = document.querySelector('#box14')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = document.querySelector('#countDown')
 
 //An array of all the divs, red boxes
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
-                    clickBox5, clickBox6, clickBox7, clickBox8];
+                    clickBox5, clickBox6, clickBox7, clickBox8,
+                    clickBox9, clickBox10, clickBox11, clickBox12,
+                    clickBox13, clickBox14];
 
 // changes score and score-to-beat to a number
 // eventually will add a timer when start button is pressed
@@ -29,7 +37,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
     scoreToBeat.innerText = randomNum
     
-    // creates target every 1 secs
+    // creates target every 0.8 secs
     let timer = setInterval(() => {
         // console.log('this is a 1sec')
         targetMaker()
@@ -45,7 +53,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
                 clearTimeout(losePopUp)
             })
         }
-    }, 1000)
+    }, 800)
 
 
     //ends game around 30sec or what number is by timer
@@ -85,9 +93,11 @@ const timerCountDown = (num) => {
     let decrement = setInterval(() => {
         num--
         countDown.innerText = num
-        // countDown.style.with = num + 'rem'
+
+        countDown.style.width = num + 'rem';
+
         if (num === 0) clearInterval(decrement)
-        else if (score.innerText > scoreToBeat.innerText) {
+        else if (score.innerText >= scoreToBeat.innerText) {
             clearInterval(decrement)
         }
         // resets timer and without it, it breaks game
@@ -173,6 +183,7 @@ resetBtn.addEventListener('click', () => {
     scoreToBeat.innerText = 'score to beat!'
     pTag.innerText = null
     countDown.innerText = 30
+    countDown.style.width = '30rem'
 
 })
 
