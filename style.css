@@ -9,6 +9,16 @@ p {
     
 }
 
+#pID {
+    position:absolute;
+    font-size: 30px;
+    background-color: yellowgreen;
+    height: 30%;
+    width: 100%;
+    text-align: justify;
+
+}
+
 #instructions {
     margin: 50px 47% 10px;
     height: 40px;

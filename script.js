@@ -20,12 +20,25 @@ const clickBox14 = document.querySelector('#box14')
 const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = document.querySelector('#countDown')
-
+const instructions = document.querySelector('#instructions')
+// console.log(instructions)
 //An array of all the divs, red boxes
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, 
                     clickBox5, clickBox6, clickBox7, clickBox8,
                     clickBox9, clickBox10, clickBox11, clickBox12,
                     clickBox13, clickBox14];
+
+instructions.addEventListener('click', () => {
+    const popUp = document.createElement('p')
+    popUp.setAttribute('id', 'pID')
+    const youWin = document.createTextNode('To win the game your SCORE must be higher than SCORE TO BEAT! When you click the start button, red targets will spawn in the colored area. Every time you successfully clicked a red target your score will go up by 10. Try to get a higher score within a set time! The time is 30 seconds! If you lose or want to restart, click on the reset button. To start the game click on START or RESET. Good luck!')
+    popUp.appendChild(youWin)
+    pTag.appendChild(popUp)
+})
+
+
+
+
 
 // Allows game to start
 const startBtnListener = startBtn.addEventListener('click', () => {
