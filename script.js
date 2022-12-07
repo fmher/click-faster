@@ -30,6 +30,7 @@ const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4,
 // Allows game to start
 const startBtnListener = startBtn.addEventListener('click', () => {
     score.innerText = '0'
+    //BOTTOM TWO ALLOWS GAME TO RESTART ONLY IF WIN OR LOST. NOT DURING MID GAME
     pTag.innerText = null
     countDown.innerText = 30
     
