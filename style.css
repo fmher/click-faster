@@ -72,7 +72,7 @@ p {
 #grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TyU8l7rl1vaQWsvK-VzxnM2h7ERXAzQF6wb3H8KOVPROUhw-0vhxwbY6--Bl8rJjEHI&usqp=CAU");
+    background-image: url("./https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TyU8l7rl1vaQWsvK-VzxnM2h7ERXAzQF6wb3H8KOVPROUhw-0vhxwbY6--Bl8rJjEHI&usqp=CAU");
     background-size:cover;
     background-repeat: no-repeat;
     cursor: crosshair;
