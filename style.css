@@ -1,3 +1,6 @@
+body {
+    background-color: rgb(186, 199, 199);
+}
 p {
     position:absolute;
     font-size: 100px;
@@ -69,14 +72,19 @@ p {
 #grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    background-color: aquamarine;
-    
-    /* this changes mouse to crosshair */
-    /* .crosshair {cursor: crosshair;} */
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TyU8l7rl1vaQWsvK-VzxnM2h7ERXAzQF6wb3H8KOVPROUhw-0vhxwbY6--Bl8rJjEHI&usqp=CAU");
+    background-size:cover;
+    background-repeat: no-repeat;
     cursor: crosshair;
     font-size: 200px;
     text-align: center;
 }
+
+/* #img {
+    object-fit: cover;
+    height: auto;
+    width: ;
+} */
 
 #scores {
     text-align: center;
@@ -125,7 +133,7 @@ p {
 }
 
 .boxstyle {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     height: 100px;
     width: 100px;
     text-align: center;
