@@ -9,9 +9,31 @@ p {
     
 }
 
+#start {
+    float: left;
+    margin-left: 20rem;
+    height: 40px;
+    width: 100px;
+}
+
+#reset {
+    float: right;
+    margin-right:  20rem;
+    height: 40px;
+    width: 100px;
+}
+
+#timerWord {
+    margin: 40px 40px 40px 40px;
+    padding: 40px 40px 40px 40px;
+    text-align: center;
+}
+
 #countDown {
     background-color: blanchedalmond;
     font-size: 50px;
+    width: 30rem;
+    margin: auto;
 }
 
 #grid {

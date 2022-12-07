@@ -55,7 +55,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     let losePopUp = setTimeout(() => {
         
         youLost()
-    }, (+countDown.innerText * 1000))
+    }, (+countDown.innerText * 999))
 
     // allows timer to decrement WHEN BUTTON PRESSED
     timerCountDown(+countDown.innerText)
@@ -85,6 +85,7 @@ const timerCountDown = (num) => {
     let decrement = setInterval(() => {
         num--
         countDown.innerText = num
+        // countDown.style.with = num + 'rem'
         if (num === 0) clearInterval(decrement)
         else if (score.innerText > scoreToBeat.innerText) {
             clearInterval(decrement)
@@ -120,7 +121,7 @@ const clickBox = () => {
 //CREATES TARGETS
 const targetMaker = () => {
     const randomIndex = Math.round(Math.random() * clickBoxArr.length)
-    // console.log(randomIndex)
+    console.log(randomIndex)
     const randomDiv = clickBoxArr[randomIndex]
     const newDiv = document.createElement('div')
     //creating new div to make targets at random divs
@@ -142,7 +143,7 @@ const targetMaker = () => {
         if (newDiv != null) {
             randomDiv.removeChild(newDiv)
         } 
-    }, 500)
+    }, 600)
 }
 
 
