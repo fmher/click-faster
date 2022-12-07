@@ -28,28 +28,29 @@ const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4,
                     clickBox9, clickBox10, clickBox11, clickBox12,
                     clickBox13, clickBox14];
 
-// changes score and score-to-beat to a number
-// eventually will add a timer when start button is pressed
+// Allows game to start
 const startBtnListener = startBtn.addEventListener('click', () => {
     score.innerText = '0'
     
     // creates random number that you will have to beat!
-    let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10
+    let randomNum = Math.round((Math.random() * 10000) * 0.001) * 10 
     scoreToBeat.innerText = randomNum
     
     // creates target every 0.8 secs
     let timer = setInterval(() => {
         // console.log('this is a 1sec')
+        // creates targets!
         targetMaker()
-        if(score.innerText >= scoreToBeat.innerText) {
+        // targetMaker()
+        // if score is = or greater stops timer and you losing
+        if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
             clearTimeout(losePopUp)
         } 
         else {
-// WOKRS NOW. nO LONGER HAVE TO DOUBLE TAP
+            // stops timer from running and losing pop from showing after clicked
             resetBtn.addEventListener('click', () => {
                 clearTimeout(timer)
-//prevents losepopup from showing
                 clearTimeout(losePopUp)
             })
         }
@@ -75,9 +76,9 @@ const startBtnListener = startBtn.addEventListener('click', () => {
 
 
 
-// create a pop up, you lose, when dont beat SCORETOBEAT in time
+// create a pop up, you lose, when dont beat SCORE-TO-BEAT within time
 const youLost = () => {
-    if (score.innerText < scoreToBeat.innerText) {
+    if (score.innerText <= scoreToBeat.innerText) {
         const popUp = document.createElement('p')
         const youWin = document.createTextNode('You Lost! Try again!')
         popUp.appendChild(youWin)
@@ -93,17 +94,18 @@ const timerCountDown = (num) => {
     let decrement = setInterval(() => {
         num--
         countDown.innerText = num
-
+        //creates a bar the decrements with the time
         countDown.style.width = num + 'rem';
-
+        // if timer hits 0 then stops decrement
         if (num === 0) clearInterval(decrement)
-        else if (score.innerText >= scoreToBeat.innerText) {
+        // if score is higher than score-to-beat stops timer
+        else if (score.innerText > scoreToBeat.innerText) {
             clearInterval(decrement)
         }
         // resets timer and without it, it breaks game
         resetBtn.onclick = () => {
             clearInterval(decrement)
-            // countDown.innerText = 30
+            countDown.innerText = 30
         }
     }, 1000)
 }
@@ -119,10 +121,16 @@ const clickBox = () => {
     scoreUp(+score.innerText)
 
     if (+score.innerText > +scoreToBeat.innerText) {
-        const popUp = document.createElement('p')
-        const youWin = document.createTextNode('You win!')
-        popUp.appendChild(youWin)
-        pTag.appendChild(popUp)
+        // const popUp = document.createElement('p')
+        // const youWin = document.createTextNode('You win!')
+        // popUp.appendChild(youWin)
+        // pTag.appendChild(popUp)
+        setTimeout( () => {
+            const popUp = document.createElement('p')
+            const youWin = document.createTextNode('You win!')
+            popUp.appendChild(youWin)
+            pTag.appendChild(popUp)
+        }, 1000)
 
     }
 }
