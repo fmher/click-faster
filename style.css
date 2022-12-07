@@ -102,6 +102,7 @@ p {
 
 #score-to-beat {
     float: right;
+    margin-bottom: 100px;
 }
 
 #target {
@@ -115,6 +116,12 @@ p {
     height: 30px;
     width: 30px;
     
+}
+
+#overachiever {
+    position: relative;
+    font-size: 30px;
+    width: 1067px;
 }
 
 .boxstyle {
