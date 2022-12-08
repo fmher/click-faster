@@ -178,7 +178,7 @@ const targetMaker = () => {
         if (newDiv != null) {
             randomDiv.removeChild(newDiv)
         } 
-    }, 600)
+    }, 700)
 }
 
 
