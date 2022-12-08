@@ -25,6 +25,7 @@ const instructions = document.querySelector('#instructions');
 //An array of all the divs, red boxes
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, clickBox5, clickBox6, clickBox7, clickBox8, clickBox9, clickBox10, clickBox11, clickBox12, clickBox13, clickBox14];
 
+
 //click instruction btn then explains the game
 instructions.addEventListener('click', () => {
     const popUp = document.createElement('p')
@@ -37,7 +38,8 @@ instructions.addEventListener('click', () => {
 
 
 
-
+let timer
+let losePopUp
 
 // Allows game to start
 const startBtnListener = startBtn.addEventListener('click', () => {
@@ -51,20 +53,20 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     scoreToBeat.innerText = randomNum
     
     // creates target every 0.8 secs
-    let timer = setInterval(() => {
+    timer = setInterval(() => {
         targetMaker()
         // if score is = or greater stops timer and you losing
         if(score.innerText > scoreToBeat.innerText) {
             clearInterval(timer)
             clearInterval(losePopUp)
         } 
-        else {
-            // stops timer from running and losing pop from showing after clicked
-            resetBtn.addEventListener('click', () => {
-                clearTimeout(timer)
-                clearTimeout(losePopUp)
-            })
-        }
+        // else {
+        //     // stops timer from running and losing pop from showing after clicked
+        //     resetBtn.addEventListener('click', () => {
+        //         clearTimeout(timer)
+        //         clearTimeout(losePopUp)
+        //     })
+        // }
     }, 800)
 
 
@@ -72,7 +74,7 @@ const startBtnListener = startBtn.addEventListener('click', () => {
     setTimeout(() => clearInterval(timer), (+countDown.innerText * 990))
 
     //timer ends and creates a pop up you lost!
-    let losePopUp = setTimeout(() => {
+    losePopUp = setTimeout(() => {
         youLost()
     }, (+countDown.innerText * 1010))
 
@@ -99,10 +101,10 @@ const youLost = () => {
 
 }
 
-
+let decrement
 //works, DECREMENTS TIMER
 const timerCountDown = (num) => {
-    let decrement = setInterval(() => {
+    decrement = setInterval(() => {
         num--
         countDown.innerText = num
         //creates a bar the decrements with the time
@@ -114,14 +116,15 @@ const timerCountDown = (num) => {
             clearInterval(decrement)
         }
         // resets timer and without it, it breaks game
-        resetBtn.onclick = () => {
-            clearInterval(decrement)
-            countDown.innerText = 30
-        }
+        // resetBtn.onclick = () => {
+        //     clearInterval(decrement)
+        //     countDown.innerText = 30
+        // }
     }, 1000)
 }
 
 
+let winPopUp
 //changes score and increments it
 // allows game to function
 const clickBox = () => {
@@ -131,7 +134,7 @@ const clickBox = () => {
 
     if (+score.innerText - 20 >= +scoreToBeat.innerText) {
         // this allows asynchronous to work with each other. Due to setTimeout, setInterval, clearSetTimeout, clearInterval always functioning with a slight lag
-        setTimeout( () => {
+        winPopUp = setTimeout( () => {
             const popUp = document.createElement('p')
             popUp.setAttribute('id', 'overachiever')
             const youWin = document.createTextNode('Wow, you got extra points you over achiever. Congrats winner!')
@@ -153,12 +156,15 @@ const clickBox = () => {
 }
 
 
+let targetRemover
+let newDiv
+let randomDiv
 //CREATES TARGETS
 const targetMaker = () => {
     const randomIndex = Math.round(Math.random() * clickBoxArr.length)
     console.log(randomIndex)
-    const randomDiv = clickBoxArr[randomIndex]
-    const newDiv = document.createElement('div')
+    randomDiv = clickBoxArr[randomIndex]
+    newDiv = document.createElement('div')
     //creating new div to make targets at random divs
     newDiv.setAttribute('id', 'target')
     randomDiv.appendChild(newDiv)
@@ -173,11 +179,12 @@ const targetMaker = () => {
     }
 
 // REMOVES TARGETS WITHIN SET TIME!------------------------------
-    let targetRemover = setInterval(() => {
-        clearInterval(targetRemover)
-        if (newDiv != null) {
-            randomDiv.removeChild(newDiv)
-        } 
+    targetRemover = setTimeout(() => {
+        // if (newDiv != null) {
+        //     clearTimeout(targetRemover)
+        // } 
+        console.log('   ')
+        randomDiv.removeChild(newDiv)
     }, 600)
 }
 
@@ -198,6 +205,14 @@ resetBtn.addEventListener('click', () => {
     countDown.innerText = 30
     countDown.style.width = '30rem'
 
+
+    clearInterval(timer)
+    clearInterval(losePopUp)
+    clearTimeout(decrement)
+    clearTimeout(winPopUp)
+    clearTimeout(targetRemover)
+
+    randomDiv.removeChild(newDiv)
 })
 
 
