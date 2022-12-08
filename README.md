@@ -31,4 +31,10 @@ The whole point of the game is to much sure your click your targets within in a 
 * allow targets to take move
 * targets have health bar or can take multiple hits
 
+# Post Reflection
 
+I wrote on paper to see my thoughts and ideas of how to approach this project. Then I kind of talked to myself on what steps would be needed. I currently understand that every step is very important for code so I wanted to make sure I did not miss a step if possible. Then I wrote small functions that would be needed for project. After testing it out to make sure it worked, I threw it all together to get my project to work. I struggled alot on getting all the timers to work properly because they would execute with a slight lag due to it being asynchronous code. Then some more issues popped up because some varibles were local/function scope. After some testing and experimenting I got my code to work properly. I used a lot of googling and peers for help with this project. After finishing this project, I feel a bit more confident with my coding. Just knowing that I was able to create something and getting it to work was amazing. Then I also had a lot of ah ha moments where I somehow found a solution or realized that I miss-spelled something. 
+
+# Game Link
+
+https://fmher.github.io/click-faster/
