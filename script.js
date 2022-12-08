@@ -21,7 +21,7 @@ const pTag = document.querySelector('#p')
 const target = document.querySelector('#target')
 const countDown = document.querySelector('#countDown')
 const instructions = document.querySelector('#instructions');
-// console.log(instructions)
+
 //An array of all the divs, red boxes
 const clickBoxArr = [clickBox1, clickBox2, clickBox3, clickBox4, clickBox5, clickBox6, clickBox7, clickBox8, clickBox9, clickBox10, clickBox11, clickBox12, clickBox13, clickBox14];
 
@@ -141,7 +141,7 @@ const clickBox = () => {
         
         
     } 
-    // else 
+
     if (+score.innerText > +scoreToBeat.innerText) {
         setTimeout( () => {
             const popUp = document.createElement('p')
@@ -162,10 +162,6 @@ const targetMaker = () => {
     //creating new div to make targets at random divs
     newDiv.setAttribute('id', 'target')
     randomDiv.appendChild(newDiv)
-
-    // console.log('randomdiv = ',randomDiv)
-    // console.log('   newDiv =', newDiv)
-
     newDiv.addEventListener('click', clickBox)
 //  REMOVES TARGET WHEN CLICKED ON
     newDiv.onclick = () => {
